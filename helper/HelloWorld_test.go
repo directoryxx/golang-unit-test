@@ -1,6 +1,7 @@
 package helper
 
 import (
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"runtime"
@@ -44,6 +45,15 @@ func TestSkip(t *testing.T)  {
 
 	result := HelloWorld("Angga")
 	assert.Equal(t, "Hello Angga",result,"Result must equal 'Hello Angga'")
+}
+
+func TestMain(m *testing.M) {
+	// BIsa digunakan init db
+	fmt.Println("Before Unit Test")
+	m.Run()
+
+	// BIsa digunakan cleanup db
+	fmt.Println("After Unit Test")
 }
 
 
