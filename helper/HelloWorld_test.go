@@ -1,24 +1,22 @@
 package helper
 
 import (
-	"fmt"
 	"testing"
 )
 
 func TestHelloWorld(t *testing.T) {
 	result := HelloWorld("Anga")
 	if result != "Hello Angga" {
-		t.Fail()
+		t.Fatal("Result must 'Hello Angga'")
 	}
 
-	fmt.Println("TestHelloWorld Success")
+	//fmt.Println("TestHelloWorld Success")
 }
 
 func TestHelloWorld2(t *testing.T) {
 	result := HelloWorld("Anga")
 	if result != "Hello Angga" {
-		t.FailNow()
+		t.Error("Result must 'Hello Angga'")
 	}
-	// t.FailNow program dibawahnya tidak dijalankan
-	fmt.Println("TestHelloWorld2 Success")
+	//fmt.Println("TestHelloWorld2 Success")
 }
