@@ -12,7 +12,7 @@ var categoryService = CategoryService{Repository: categoryRepository}
 
 func TestCategoryService_NotFound(t *testing.T)  {
 	categoryRepository.Mock.On("FindById").Return(nil)
-	category,err := categoryService.Get("1")
+	category,err := categoryService.Get("0")
 	assert.Nil(t, category)
 	assert.NotNil(t, category,err)
 }

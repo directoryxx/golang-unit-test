@@ -8,6 +8,27 @@ import (
 	"testing"
 )
 
+func BenchmarkHelloWorld(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HelloWorld("Angga")
+	}
+}
+
+func BenchmarkSubHelloWorld(b *testing.B) {
+	b.Run("Angga", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			HelloWorld("Angga")
+		}
+	})
+
+	b.Run("Wijaya", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			HelloWorld("Wijaya")
+		}
+	})
+
+}
+
 func TestHelloWorld(t *testing.T) {
 	result := HelloWorld("Angga")
 	if result != "Hello Angga" {
